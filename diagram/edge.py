@@ -1,8 +1,8 @@
 class Edge:
-    def __init__(self, source, target, edge_type: str, attributes=None):
+    def __init__(self, source, target, edge_label: str, attributes=None):
         self.source = source
         self.target = target
-        self.edge_type = edge_type
+        self.edge_label = 
         self.attributes = attributes or {}
 
     def __repr__(self):
