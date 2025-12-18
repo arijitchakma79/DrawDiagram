@@ -1,0 +1,129 @@
+{
+  "task_name": "define_constraints",
+  "parameters": {
+    "topic": "solar system",
+    "diagram_family": "Network",
+    "nodes": [
+      {
+        "id": "n1",
+        "node_type": "entity"
+      },
+      {
+        "id": "n2",
+        "node_type": "entity"
+      },
+      {
+        "id": "n3",
+        "node_type": "entity"
+      },
+      {
+        "id": "n4",
+        "node_type": "entity"
+      },
+      {
+        "id": "n5",
+        "node_type": "entity"
+      },
+      {
+        "id": "n6",
+        "node_type": "entity"
+      },
+      {
+        "id": "n7",
+        "node_type": "entity"
+      },
+      {
+        "id": "n8",
+        "node_type": "entity"
+      },
+      {
+        "id": "n9",
+        "node_type": "entity"
+      },
+      {
+        "id": "n10",
+        "node_type": "region"
+      },
+      {
+        "id": "n11",
+        "node_type": "region"
+      },
+      {
+        "id": "n12",
+        "node_type": "region"
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "index": 0,
+      "score": 4.0,
+      "critique": "The constraints provided are largely scientifically meaningful and applicable globally, as they reflect fundamental principles of astronomy and physics. \n\n1. **Non-Overlapping Regions**: This is scientifically meaningful as it ensures clarity in representation, though it might not always be necessary in all scientific diagrams. \n\n2. **Orbital Paths**: This is a critical constraint for accurately depicting celestial mechanics, making it highly meaningful and globally applicable.\n\n3. **Hierarchical Representation**: This is important for understanding the structure of celestial systems, though it might be more relevant in educational or illustrative contexts rather than all scientific diagrams.\n\n4. **Scale Consistency**: While scientifically meaningful, achieving true scale consistency is often impractical in diagrams due to the vast differences in size and distance in space. However, maintaining relative scale consistency is important for understanding.\n\n5. **Gravitational Centers**: This is a fundamental aspect of celestial mechanics and is globally applicable.\n\n6. **Unique Identification**: This is important for clarity and communication, though it is more of a practical constraint than a scientific one.\n\nOverall, these constraints are not redundant and cover different aspects of diagrammatic representation of celestial systems, but some are more practical than scientific.",
+      "output": {
+        "constraints": [
+          {
+            "name": "Non-Overlapping Regions",
+            "description": "Regions in the diagram must not overlap spatially."
+          },
+          {
+            "name": "Orbital Paths",
+            "description": "Celestial bodies must follow their orbital paths and not intersect each other."
+          },
+          {
+            "name": "Hierarchical Representation",
+            "description": "Hierarchy must be followed with celestial bodies nested within their appropriate regions or systems."
+          },
+          {
+            "name": "Scale Consistency",
+            "description": "The size scales between entities must be consistent to represent realistic proportions."
+          },
+          {
+            "name": "Gravitational Centers",
+            "description": "Planets must be around recognizable gravitational centers (e.g., stars)."
+          },
+          {
+            "name": "Unique Identification",
+            "description": "Each entity and region must have a unique identifier within the diagram."
+          }
+        ]
+      }
+    },
+    {
+      "index": 1,
+      "score": 4.0,
+      "critique": "The constraints provided are scientifically meaningful as they reflect fundamental principles of celestial mechanics and the structure of our solar system. They are not redundant, as each constraint addresses a distinct aspect of celestial dynamics, such as proximity, orbital paths, and mass dominance. These constraints are applicable globally, as they are based on universal laws of physics that govern celestial bodies throughout the universe. However, the score is not a perfect 5 because some constraints, like 'PlanetaryOrder' and 'SunDominance', are specific to our solar system and may not apply to other star systems with different configurations.",
+      "output": {
+        "constraints": [
+          {
+            "name": "GravitationalBodyProximity",
+            "description": "Gravitational bodies must be in relative positions that reflect their distances at scale (e.g., inner planets closer to the Sun than outer planets)."
+          },
+          {
+            "name": "OrbitalPath",
+            "description": "Celestial bodies must be on predefined orbital paths around their common center of mass."
+          },
+          {
+            "name": "PlanetaryOrder",
+            "description": "Planets must be positioned in the correct orbital sequence from the Sun."
+          },
+          {
+            "name": "Non-IntersectingOrbits",
+            "description": "Orbits of celestial bodies must not intersect."
+          },
+          {
+            "name": "OrbitTypeRestriction",
+            "description": "Only certain types of celestial bodies (planets, moons, man-made satellites) can have closed orbits; stars and galaxies follow other patterns."
+          },
+          {
+            "name": "CelestialBarycenter",
+            "description": "All celestial bodies must orbit around their specific barycenter."
+          },
+          {
+            "name": "SunDominance",
+            "description": "The Sun must be the dominant massive body in the solar system model, with all planets being less massive."
+          }
+        ]
+      }
+    }
+  ]
+}

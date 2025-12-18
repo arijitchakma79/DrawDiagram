@@ -3,7 +3,7 @@ from typing import List, Literal, Optional
 
 from protocol.task_spec import TaskSpecification
 
-# ---------- FAMILY SELECTION ----------
+
 
 class FamilyResponse(BaseModel):
     """Response schema for diagram family selection."""
@@ -15,16 +15,11 @@ SELECT_DIAGRAM_FAMILY = TaskSpecification(
     Choose exactly ONE diagram family that best fits the given scientific topic.
 
     DIAGRAM FAMILIES:
-    STRUCTURAL_ANATOMICAL
-    MECHANISTIC_PROCESS
-    CAUSAL_REGULATORY
-    CYCLIC_PROCESS
-    STATE_TRANSITION
-    HIERARCHICAL_EVOLUTIONARY
-    INTERACTION_NETWORK
-    FIELD_GRADIENT
-    ENERGY_CONSTRAINT
-    TEMPORAL_EVOLUTION
+    Flow
+    Cycle
+    Tree
+    Network
+    Timeline
 
     RULES:
     - Choose exactly one family
@@ -32,6 +27,12 @@ SELECT_DIAGRAM_FAMILY = TaskSpecification(
     - Output JSON only
     """.strip(),
     output_schema=FamilyResponse,
+    branching_factor=1,
+    critic_instruction="""
+    Score whether the selected diagram family fits the topic.
+    Return a score from 1 to 5.
+    Output JSON only: {"score": number}
+    """
 )
 
 # ---------- NODE ENUMERATION ----------
@@ -63,15 +64,23 @@ ENUMERATE_NODES = TaskSpecification(
 
     RULES:
     - Nodes must correspond to elements typically drawn as boxes or circles
-    - Do not include fine-grained subcomponents
     - Do not define edges
-    - Do not explain your choices
     - Each node must have a unique id
     - Use only allowed node types
-    - Keep the set minimal and within provided limits
+    - Nodes must be appropriate for the specified abstraction level
     - Output JSON only
     """.strip(),
     output_schema=NodesResponse,
+    branching_factor=3,
+    critic_instruction="""
+    Score this node set for:
+    - scientific completeness
+    - minimality (no unnecessary nodes)
+    - abstraction consistency
+
+    Return a score from 1 to 5.
+    Output JSON only: {"score": number}
+    """
 )
 
 # ---------- CONSTRAINTS ----------
@@ -85,24 +94,32 @@ class ConstraintsResponse(BaseModel):
     """Response schema for constraint definition."""
     constraints: List[ConstraintOut] = Field(..., description="List of diagram constraints")
 
+
 DEFINE_CONSTRAINTS = TaskSpecification(
     name="define_constraints",
     system_instruction="""
-Define scientific constraints that restrict valid diagrams.
+    Define scientific constraints that restrict valid diagrams.
 
-RULES:
-- Constraints must apply globally
-- Do not define nodes or edges
-- Do not explain constraints
-- Keep the set minimal
-- Output JSON only
-""".strip(),
+    RULES:
+    - Constraints must apply globally
+    - Do not define nodes or edges
+    - Do not explain constraints
+    - Keep the set minimal
+    - Output JSON only
+    """.strip(),
     output_schema=ConstraintsResponse,
+    branching_factor=2,
+    critic_instruction="""
+    Score whether these constraints are:
+    - scientifically meaningful
+    - not redundant
+    - applicable globally
+
+    Return a score from 1 to 5.
+    Output JSON only.
+    """
 )
-
-
 # ---------- EDGES ----------
-
 class EdgeAttributes(BaseModel):
     """Attributes for a diagram edge."""
     pass
@@ -128,11 +145,22 @@ CONNECT_EDGES = TaskSpecification(
     RULES:
     - Use descriptive edge labels that indicate the relationship type
     - Do not invent new nodes
-    - Do not explain your choices
-    - No duplicate edges (same source, target, edge_label)
     - Avoid unnecessary edges
     - Respect the provided constraints
     - Output JSON only matching the schema
     """.strip(),
     output_schema=EdgesResponse,
+    branching_factor=3,
+    critic_instruction="""
+    Evaluate the edges for:
+    - scientific accuracy
+    - meaningful edge labels
+    - no redundancy
+    - correct directionality
+
+    Penalize vague labels like "related to".
+
+    Return a score from 1 to 5.
+    Output JSON only.
+    """
 )

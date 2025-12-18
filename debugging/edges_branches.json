@@ -1,0 +1,358 @@
+{
+  "task_name": "connect_edges",
+  "parameters": {
+    "topic": "solar system",
+    "diagram_family": "Network",
+    "nodes": [
+      {
+        "id": "n1",
+        "label": "Sun",
+        "node_type": "entity"
+      },
+      {
+        "id": "n2",
+        "label": "Mercury",
+        "node_type": "entity"
+      },
+      {
+        "id": "n3",
+        "label": "Venus",
+        "node_type": "entity"
+      },
+      {
+        "id": "n4",
+        "label": "Earth",
+        "node_type": "entity"
+      },
+      {
+        "id": "n5",
+        "label": "Mars",
+        "node_type": "entity"
+      },
+      {
+        "id": "n6",
+        "label": "Jupiter",
+        "node_type": "entity"
+      },
+      {
+        "id": "n7",
+        "label": "Saturn",
+        "node_type": "entity"
+      },
+      {
+        "id": "n8",
+        "label": "Uranus",
+        "node_type": "entity"
+      },
+      {
+        "id": "n9",
+        "label": "Neptune",
+        "node_type": "entity"
+      },
+      {
+        "id": "n10",
+        "label": "Asteroid Belt",
+        "node_type": "region"
+      },
+      {
+        "id": "n11",
+        "label": "Kuiper Belt",
+        "node_type": "region"
+      },
+      {
+        "id": "n12",
+        "label": "Oort Cloud",
+        "node_type": "region"
+      }
+    ],
+    "constraints": [
+      {
+        "name": "Non-Overlapping Regions",
+        "description": "Regions in the diagram must not overlap spatially."
+      },
+      {
+        "name": "Orbital Paths",
+        "description": "Celestial bodies must follow their orbital paths and not intersect each other."
+      },
+      {
+        "name": "Hierarchical Representation",
+        "description": "Hierarchy must be followed with celestial bodies nested within their appropriate regions or systems."
+      },
+      {
+        "name": "Scale Consistency",
+        "description": "The size scales between entities must be consistent to represent realistic proportions."
+      },
+      {
+        "name": "Gravitational Centers",
+        "description": "Planets must be around recognizable gravitational centers (e.g., stars)."
+      },
+      {
+        "name": "Unique Identification",
+        "description": "Each entity and region must have a unique identifier within the diagram."
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "index": 0,
+      "score": 3.0,
+      "critique": "The edges provided have a mix of strengths and weaknesses:\n\n1. **Scientific Accuracy**: The terms \"orbits,\" \"contains,\" \"inner boundary of,\" and \"outer boundary of\" are scientifically accurate and commonly used in contexts like astronomy or physics. However, without context, it's unclear if these terms are applied correctly to the nodes.\n\n2. **Meaningful Edge Labels**: The labels are specific and meaningful, avoiding vague terms like \"related to.\" This is a positive aspect of the graph.\n\n3. **No Redundancy**: There is some redundancy in the repeated use of \"orbits\" from \"n1\" to multiple nodes (n2 to n9). This could imply a central object with multiple satellites, but without context, it seems repetitive.\n\n4. **Correct Directionality**: The directionality of the edges seems appropriate for the terms used. For example, \"orbits\" and \"contains\" imply a directional relationship that is correctly represented.\n\nOverall, the graph is well-structured in terms of edge labels and directionality, but the lack of context and potential redundancy in the \"orbits\" edges reduce the score.",
+      "output": {
+        "edges": [
+          {
+            "source": "n1",
+            "target": "n2",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n3",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n4",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n5",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n6",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n7",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n8",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n9",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n10",
+            "edge_label": "contains",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n11",
+            "edge_label": "contains",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n12",
+            "edge_label": "contains",
+            "attributes": null
+          },
+          {
+            "source": "n5",
+            "target": "n10",
+            "edge_label": "inner boundary of",
+            "attributes": null
+          },
+          {
+            "source": "n6",
+            "target": "n10",
+            "edge_label": "outer boundary of",
+            "attributes": null
+          },
+          {
+            "source": "n9",
+            "target": "n11",
+            "edge_label": "inner boundary of",
+            "attributes": null
+          },
+          {
+            "source": "n12",
+            "target": "n11",
+            "edge_label": "outer boundary of",
+            "attributes": null
+          }
+        ]
+      }
+    },
+    {
+      "index": 1,
+      "score": 3.0,
+      "critique": "The edges provided have a consistent use of the 'orbits' label, which is scientifically accurate if n1 is a central body like a star or planet. However, the repeated use of 'orbits' without additional context or differentiation between targets n2 to n9 makes the graph somewhat redundant and less informative. \n\nThe labels 'located between', 'located outside of', 'extends beyond', and 'extends towards' are more specific and meaningful, providing clear directionality and context. However, without knowing the nature of the nodes, it's difficult to fully assess the scientific accuracy of these relationships.\n\nOverall, the graph could benefit from more diverse and informative edge labels, especially for the 'orbits' connections, to enhance clarity and reduce redundancy.",
+      "output": {
+        "edges": [
+          {
+            "source": "n1",
+            "target": "n2",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n3",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n4",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n5",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n6",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n7",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n8",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n9",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n4",
+            "target": "n10",
+            "edge_label": "located between",
+            "attributes": null
+          },
+          {
+            "source": "n6",
+            "target": "n10",
+            "edge_label": "located outside of",
+            "attributes": null
+          },
+          {
+            "source": "n9",
+            "target": "n11",
+            "edge_label": "extends beyond",
+            "attributes": null
+          },
+          {
+            "source": "n11",
+            "target": "n12",
+            "edge_label": "extends towards",
+            "attributes": null
+          }
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "score": 2.0,
+      "critique": "The graph has several issues that affect its scientific accuracy and clarity:\n\n1. **Scientific Accuracy**: The use of the term \"orbits\" is scientifically accurate if the context is celestial bodies or similar systems. However, without context, it's unclear what n1, n2, etc., represent, making it difficult to assess accuracy fully.\n\n2. **Meaningful Edge Labels**: The label \"orbits\" is clear and specific, assuming the context is correct. However, \"neighbor_to\" is vague without additional context or attributes explaining the nature of the neighborhood. \"Extends_into\" is also somewhat vague without knowing what n11 and n12 represent.\n\n3. **No Redundancy**: There is redundancy in the repeated use of \"orbits\" from n1 to multiple targets. If n1 is a central body, this could be acceptable, but it lacks context.\n\n4. **Correct Directionality**: The directionality seems consistent with the labels used, assuming \"orbits\" implies a central body and \"extends_into\" implies a directional relationship. However, without context, this is speculative.\n\nOverall, the graph lacks context and specificity in labels, making it difficult to evaluate its scientific accuracy and meaningfulness fully. The repeated use of \"orbits\" without context also suggests potential redundancy.",
+      "output": {
+        "edges": [
+          {
+            "source": "n1",
+            "target": "n2",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n3",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n4",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n5",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n6",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n7",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n8",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n1",
+            "target": "n9",
+            "edge_label": "orbits",
+            "attributes": null
+          },
+          {
+            "source": "n4",
+            "target": "n10",
+            "edge_label": "neighbor_to",
+            "attributes": null
+          },
+          {
+            "source": "n7",
+            "target": "n10",
+            "edge_label": "neighbor_to",
+            "attributes": null
+          },
+          {
+            "source": "n9",
+            "target": "n11",
+            "edge_label": "neighbor_to",
+            "attributes": null
+          },
+          {
+            "source": "n11",
+            "target": "n12",
+            "edge_label": "extends_into",
+            "attributes": null
+          }
+        ]
+      }
+    }
+  ]
+}

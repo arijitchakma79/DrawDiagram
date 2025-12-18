@@ -1,0 +1,232 @@
+{
+  "topic": "solar system",
+  "diagram_family": "Network",
+  "nodes": [
+    {
+      "id": "n1",
+      "label": "Sun",
+      "node_type": "entity",
+      "attributes": {
+        "description": "The star at the center of the Solar System",
+        "role": "central object"
+      }
+    },
+    {
+      "id": "n2",
+      "label": "Mercury",
+      "node_type": "entity",
+      "attributes": {
+        "description": "The smallest and innermost planet in the Solar System",
+        "role": "planet"
+      }
+    },
+    {
+      "id": "n3",
+      "label": "Venus",
+      "node_type": "entity",
+      "attributes": {
+        "description": "The second planet from the Sun, known for its thick atmosphere",
+        "role": "planet"
+      }
+    },
+    {
+      "id": "n4",
+      "label": "Earth",
+      "node_type": "entity",
+      "attributes": {
+        "description": "The third planet from the Sun, home to life",
+        "role": "planet"
+      }
+    },
+    {
+      "id": "n5",
+      "label": "Mars",
+      "node_type": "entity",
+      "attributes": {
+        "description": "The fourth planet from the Sun, known as the Red Planet",
+        "role": "planet"
+      }
+    },
+    {
+      "id": "n6",
+      "label": "Jupiter",
+      "node_type": "entity",
+      "attributes": {
+        "description": "The largest planet in the Solar System",
+        "role": "planet"
+      }
+    },
+    {
+      "id": "n7",
+      "label": "Saturn",
+      "node_type": "entity",
+      "attributes": {
+        "description": "Known for its prominent ring system",
+        "role": "planet"
+      }
+    },
+    {
+      "id": "n8",
+      "label": "Uranus",
+      "node_type": "entity",
+      "attributes": {
+        "description": "An ice giant with a unique tilt",
+        "role": "planet"
+      }
+    },
+    {
+      "id": "n9",
+      "label": "Neptune",
+      "node_type": "entity",
+      "attributes": {
+        "description": "The farthest known planet from the Sun in the Solar System",
+        "role": "planet"
+      }
+    },
+    {
+      "id": "n10",
+      "label": "Asteroid Belt",
+      "node_type": "region",
+      "attributes": {
+        "description": "The region of space between Mars and Jupiter occupied by numerous asteroids",
+        "role": "region"
+      }
+    },
+    {
+      "id": "n11",
+      "label": "Kuiper Belt",
+      "node_type": "region",
+      "attributes": {
+        "description": "A region beyond Neptune populated with many small bodies and dwarf planets",
+        "role": "region"
+      }
+    },
+    {
+      "id": "n12",
+      "label": "Oort Cloud",
+      "node_type": "region",
+      "attributes": {
+        "description": "A distant spherical shell of icy objects surrounding the Solar System",
+        "role": "comet reservoir"
+      }
+    }
+  ],
+  "constraints": [
+    {
+      "name": "Non-Overlapping Regions",
+      "description": "Regions in the diagram must not overlap spatially."
+    },
+    {
+      "name": "Orbital Paths",
+      "description": "Celestial bodies must follow their orbital paths and not intersect each other."
+    },
+    {
+      "name": "Hierarchical Representation",
+      "description": "Hierarchy must be followed with celestial bodies nested within their appropriate regions or systems."
+    },
+    {
+      "name": "Scale Consistency",
+      "description": "The size scales between entities must be consistent to represent realistic proportions."
+    },
+    {
+      "name": "Gravitational Centers",
+      "description": "Planets must be around recognizable gravitational centers (e.g., stars)."
+    },
+    {
+      "name": "Unique Identification",
+      "description": "Each entity and region must have a unique identifier within the diagram."
+    }
+  ],
+  "edges": [
+    {
+      "source": "n1",
+      "target": "n2",
+      "edge_label": "orbits",
+      "attributes": null
+    },
+    {
+      "source": "n1",
+      "target": "n3",
+      "edge_label": "orbits",
+      "attributes": null
+    },
+    {
+      "source": "n1",
+      "target": "n4",
+      "edge_label": "orbits",
+      "attributes": null
+    },
+    {
+      "source": "n1",
+      "target": "n5",
+      "edge_label": "orbits",
+      "attributes": null
+    },
+    {
+      "source": "n1",
+      "target": "n6",
+      "edge_label": "orbits",
+      "attributes": null
+    },
+    {
+      "source": "n1",
+      "target": "n7",
+      "edge_label": "orbits",
+      "attributes": null
+    },
+    {
+      "source": "n1",
+      "target": "n8",
+      "edge_label": "orbits",
+      "attributes": null
+    },
+    {
+      "source": "n1",
+      "target": "n9",
+      "edge_label": "orbits",
+      "attributes": null
+    },
+    {
+      "source": "n1",
+      "target": "n10",
+      "edge_label": "contains",
+      "attributes": null
+    },
+    {
+      "source": "n1",
+      "target": "n11",
+      "edge_label": "contains",
+      "attributes": null
+    },
+    {
+      "source": "n1",
+      "target": "n12",
+      "edge_label": "contains",
+      "attributes": null
+    },
+    {
+      "source": "n5",
+      "target": "n10",
+      "edge_label": "inner boundary of",
+      "attributes": null
+    },
+    {
+      "source": "n6",
+      "target": "n10",
+      "edge_label": "outer boundary of",
+      "attributes": null
+    },
+    {
+      "source": "n9",
+      "target": "n11",
+      "edge_label": "inner boundary of",
+      "attributes": null
+    },
+    {
+      "source": "n12",
+      "target": "n11",
+      "edge_label": "outer boundary of",
+      "attributes": null
+    }
+  ]
+}
